@@ -1,11 +1,16 @@
 10001:
   cpu_info: "i7"
   cpu_price: 1700
+  mouse_info: "A1"
+  mouse_price: 150
 
 10002:
   cpu_info: "A7"
   cpu_price: 1999
-
+  mouse_info: "LJ"
+  mouse_price: 300
 10003:
   cpu_info: "i5"
   cpu_price: 1300
+  mouse_info: "UN"
+  mouse_price: 90

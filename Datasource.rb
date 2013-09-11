@@ -14,6 +14,14 @@ class Datasource
     @dw[computer_id]["cpu_price"]
   end
 
+  def get_mouse_info(computer_id)
+
+    @dw[computer_id]["mouse_info"]
+  end
+
+  def get_mouse_price(computer_id)
+    @dw[computer_id]["mouse_price"]
+  end
 end
 
 

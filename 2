@@ -1,0 +1,16 @@
+class Computer
+
+  def initialize(computer_id,data_source)
+    @pc_id = computer_id
+    @data_source = data_source
+    data_source.methods.grep(/^get_(. )_info$/) { Computer.define_component $1 }
+  end
+
+  def self.define_component(name)
+    define_method(name) {
+      info = @data_source.send("get_#{$1}_info")
+    }
+  end
+  
+
+end
