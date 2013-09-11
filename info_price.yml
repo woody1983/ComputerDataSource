@@ -1,0 +1,11 @@
+10001:
+  cpu_info: "i7"
+  cpu_price: 1700
+
+10002:
+  cpu_info: "A7"
+  cpu_price: 1999
+
+10003:
+  cpu_info: "i5"
+  cpu_price: 1300
