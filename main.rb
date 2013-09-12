@@ -7,5 +7,9 @@ cmp = Computer.new(ds)
 #puts ds.send(:get_cpu_info, 10001)
 #puts cmp.cpu 10001
 puts cmp.cpu 10001,10002,10003
-#name = "cpu"
-#puts ds.methods.grep(/^get_(.*)_info/)
+=begin
+[root@mysql-test-woody ruby]# ruby main.rb
+Cpu: i7, ($1700)
+* Cpu: A7, ($1999)
+Cpu: i5, ($1300)
+=end

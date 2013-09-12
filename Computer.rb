@@ -14,15 +14,10 @@ class Computer
       #puts ">>> #{name}, args: #{args}, args class: #{args.class} and size: #{args.size}"
       
       args.inject(0) do |result,pc_id|
-        #puts "result: #{result}, id: #{pc_id}"
       	info = @data_source.send "get_#{name}_info", pc_id
-        #puts ">>> Info:#{info}"
       	price = @data_source.send "get_#{name}_price", pc_id
-        #puts ">>> Price:#{price}"
       	result = "#{name.capitalize}: #{info}, ($#{price})"
-        #puts ">>>#{result}"
       	result = "* #{result}" if price > 1700
-        #puts ">>>#{result}"
         puts result
       end
   end
