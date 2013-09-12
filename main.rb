@@ -3,9 +3,9 @@ require File.dirname(__FILE__) + '/Computer'
 
 ds = Datasource.new
 #puts ds.get_cpu_info(10001)
-new_pc = Computer.new(10001,ds)
+cmp = Computer.new(ds)
 #puts ds.send(:get_cpu_info, 10001)
-puts new_pc.cpu
-puts new_pc.mouse
+puts cmp.cpu 10001
+puts cmp.cpu 10001,10002
 #name = "cpu"
 #puts ds.methods.grep(/^get_(.*)_info/)
