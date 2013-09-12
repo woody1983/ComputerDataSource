@@ -1,7 +1,7 @@
 class Computer
 
   instance_methods.each do |m|
-    undef_method m unless m.to_s =~ /^__|method_missing|respond_to?|class|methods|object_id/
+    undef_method m unless m.to_s =~ /^__|method_missing|respond_to?|object_id/
   end
 
   def initialize(data_source)
@@ -11,14 +11,19 @@ class Computer
 
   def method_missing(name, *args)
       super if !respond_to?(name)
-      puts ">>> #{name}, args: #{args}, args class: #{args.class} and size: #{args.size}"
+      #puts ">>> #{name}, args: #{args}, args class: #{args.class} and size: #{args.size}"
       
-      args.each do |pc_id|
+      args.inject(0) do |result,pc_id|
+        #puts "result: #{result}, id: #{pc_id}"
       	info = @data_source.send "get_#{name}_info", pc_id
+        #puts ">>> Info:#{info}"
       	price = @data_source.send "get_#{name}_price", pc_id
+        #puts ">>> Price:#{price}"
       	result = "#{name.capitalize}: #{info}, ($#{price})"
-      	return result = "Pc#{pc_id} : * #{result}" if price > 1000
-      	result
+        #puts ">>>#{result}"
+      	result = "* #{result}" if price > 1700
+        #puts ">>>#{result}"
+        puts result
       end
   end
 

@@ -5,7 +5,7 @@ ds = Datasource.new
 #puts ds.get_cpu_info(10001)
 cmp = Computer.new(ds)
 #puts ds.send(:get_cpu_info, 10001)
-puts cmp.cpu 10001
-puts cmp.cpu 10001,10002
+#puts cmp.cpu 10001
+puts cmp.cpu 10001,10002,10003
 #name = "cpu"
 #puts ds.methods.grep(/^get_(.*)_info/)
