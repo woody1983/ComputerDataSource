@@ -4,14 +4,15 @@ class Datasource
   
   def initialize()
     @dw = YAML.load(File.open('info_price.yml'))
+    @schema = @dw.first.last
   end
 
-   
-  method_arr = ["get_cpu_info","get_cpu_price",
-                "get_mouse_info","get_mouse_price",
-                "get_memory_info","get_memory_price"]
- 
-  method_arr.each do |method_ds|
+  source = YAML.load(File.open('info_price.yml')) 
+  schema = source.values.first.keys.map {|x| x = "get_"+x }
+
+  method_nodes = schema
+
+  method_nodes.each do |method_ds|
       method_name = method_ds.sub("get_","") #cpu_info
       define_method method_ds.to_sym  do | computer_id |
           @dw[computer_id]["#{method_name}"]
@@ -21,11 +22,16 @@ class Datasource
 end
 
 
+
 #-- Debug --#
 =begin
 ds = Datasource.new
 puts ds.get_cpu_info(10001)
 puts ds.get_cpu_price(10002)
+
+  method_arr = ["get_cpu_info","get_cpu_price",
+                "get_mouse_info","get_mouse_price",
+                "get_memory_info","get_memory_price"]
 
 
   def method_missing(name, *args)
